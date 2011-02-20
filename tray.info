@@ -1,0 +1,7 @@
+; $Id$
+name = Tray
+description = This module provides a tray to your Drupal site. This tray can be used as an application bar.
+core = 7.x
+configure = admin/structure/tray
+
+files[] = tray.module

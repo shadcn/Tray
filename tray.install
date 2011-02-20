@@ -1,0 +1,11 @@
+<?php
+// $Id$
+
+/**
+ * Implementation of hook_install
+ */
+function tray_install(){
+  if(module_exists('tray')){
+    drupal_set_message(st('Tray has been successfully installed. !administer to add blocks to the tray.', array('!administer' => l(t('Click here'),'admin/build/block')))); 
+  }  
+}
