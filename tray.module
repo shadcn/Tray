@@ -12,7 +12,15 @@ define('TRAY_MODULE_PATH', drupal_get_path('module', 'tray'));
  */
 function tray_init() {
   drupal_add_css(TRAY_MODULE_PATH . '/tray.css');
+  
+  
+  $settings = array(
+      'trayPath' => 'tray/load'
+  );
+
+  drupal_add_js(array('tray' => $settings), 'setting');
   drupal_add_js(TRAY_MODULE_PATH . '/tray.js');
+  
 }
 
 
@@ -58,11 +66,12 @@ function _tray_themes_access($theme) {
 function tray_menu() {
   $items = array();
   
-  $items['tray/content/%'] = array(
+  $items['tray/load/%'] = array(
     'title' => t('Get block content'),
     'page callback' => 'tray_ajax_callback',
     'page arguments' => array(2),
-    'access arguments' => TRUE,
+    'access arguments' => array('access tray'),
+      'type' => MENU_CALLBACK
   );
   
   return $items;
