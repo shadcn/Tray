@@ -1,9 +1,7 @@
-/* $Id: README.txt,v 1.1 2010/07/12 19:25:01 arshadchummun Exp $ */
-
 -- SUMMARY --
 
 This module provides a tray for your Drupal website. Once installed, a new region is automatically
-added to your Drupal site. You can drag and drop blocks in this new region to place them in the tray.
+added to your site. You can drag and drop blocks in this new region to place them in the tray.
 The tray can act like an application bar.
 
 Blocks placed in the tray have two display types
@@ -25,9 +23,3 @@ None.
 Install as any other Drupal module.
 Once installed go to sites/build/block to add blocks to the tray
 To configure the display type(handle or full), click on configure next to a block on the block page.
-
--- TODO --
-Write a better Readme.txt ;)
-
--- Current Maintainers --
-Arshad Chummun (http://preprocess.me)
