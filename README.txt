@@ -1,3 +1,7 @@
+-- WARNING --
+
+This is old code. You should probably not use this as it is.
+
 -- SUMMARY --
 
 This module provides a tray for your Drupal website. Once installed, a new region is automatically
