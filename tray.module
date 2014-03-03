@@ -1,4 +1,4 @@
-<?php //$Id$
+<?php
 
 /**
  * @file
@@ -8,11 +8,10 @@
 define('TRAY_MODULE_PATH', drupal_get_path('module', 'tray'));
 
 /**
- * Implementation of hook_init
+ * Implements hook_init().
  */
 function tray_init() {
   drupal_add_css(TRAY_MODULE_PATH . '/tray.css');
-  
   
   $settings = array(
       'trayPath' => 'tray/load'
@@ -20,12 +19,11 @@ function tray_init() {
 
   drupal_add_js(array('tray' => $settings), 'setting');
   drupal_add_js(TRAY_MODULE_PATH . '/tray.js');
-  
 }
 
 
 /**
- * Implementation of hook_page_alter().
+ * Implements hook_page_alter().
  */
 function tray_page_alter(&$page) {
   if(user_access('access tray') && sizeof(block_list('tray')) > 0) {
@@ -37,7 +35,7 @@ function tray_page_alter(&$page) {
 }
 
 /**
- * Implementation of hook_permission
+ * Implements hook_permission().
  */
 function tray_permission() {
   return array(
@@ -61,7 +59,7 @@ function _tray_themes_access($theme) {
 }
 
 /**
- * Implementation of hook_menu
+ * Implements hook_menu().
  */
 function tray_menu() {
   $items = array();
@@ -78,7 +76,7 @@ function tray_menu() {
 }
 
 /**
- * Implementation of hook_theme
+ * Implements hook_theme().
  */
 function tray_theme() {
   return array(
@@ -97,16 +95,15 @@ function tray_theme() {
 }
 
 /**
- * Implementation of hook_system_info_alter
- * Adds a new region to the current theme
+ * Implements hook_system_info_alter().
  */
 function tray_system_info_alter(&$info, $file){
-  
-  global $custom_theme;    
-  
+  global $custom_theme;
+
   // If non-default theme configuration has been selected, set the custom theme.
   $custom_theme = isset($theme) ? $theme : variable_get('theme_default', 'garland');
   
+  // Adds a new region to the current theme.
   if($file->name == $custom_theme){
     $info['regions'] = array_merge($info['regions'],  array('tray' => t('Tray')));
   } 
@@ -114,7 +111,7 @@ function tray_system_info_alter(&$info, $file){
 }
 
 /**
- * Implementation of hook_form_alter 
+ * Implements hook_form_alter().
 **/
 function tray_form_alter(&$form, &$form_state, $form_id) {
   
